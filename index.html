@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            margin: 12px;
+            margin-bottom: 20px;
+        }
+        .main{
+background-color: antiquewhite;
+width:100vw;
+height:100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+        }
+        .box2{
+            display: flex;
+            flex-wrap: wrap;
+            gap:40px;
+            padding: 0px 20px 0px 20px;
+        }
+        .box2 img{
+            width:120px;
+            border-radius: 15px;
+            cursor: pointer;
+
+        }
+        .box3{
+            display: flex;
+            gap:15px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6px;
+            margin-top: 15px;
+        }
+        p{
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+<div class="box1">
+    <h1>Rock-Paper-Scissor</h1>
+    <div class="box2">
+        <img src="rock.png" class="i"/>
+        <img src="paper.png" class="j"/>
+        <img src="scissor.png" class="k"/>
+    </div>
+    <div class="box3">
+        <h2 class="jack"></h2>
+        <p class="tim"></p>
+        <p class="cook"></p>
+    </div>
+</div>
+    </div>
+    <script>
+        //computer logic
+      let a1=document.querySelector(".tim");
+      let a2=document.querySelector(".cook");
+      let a3=document.querySelector(".jack");
+        let d=document.querySelectorAll("img");
+        let ans="";
+        for(let x of d)
+        {
+            x.addEventListener("click",function(e)
+        {
+            //computer logic
+            let arr=["SCISSOR","ROCK","PAPER"];
+        let ran=Math.random()*3;
+        ran=Math.floor(ran);
+    let com=arr[ran];
+
+
+            //user logic
+        if(e.target.classList.contains("i")){
+            ans="ROCK";
+        }
+        else  if(e.target.classList.contains("j")){
+            ans="PAPER";
+}
+else if(e.target.classList.contains("k")){
+ans="SCISSOR";
+}
+// console.log(ans);
+//computer win
+if( (com=="ROCK" &&  ans=="SCISSOR") || (com=="SCISSOR" && ans=="PAPER") || (com=="PAPER" && ans=="ROCK") )
+{
+a3.innerText="Computer wins";
+}
+else if((ans=="ROCK" &&  com=="SCISSOR") || (ans=="SCISSOR" && com=="PAPER") || (ans=="PAPER" && com=="ROCK")){
+a3.innerText="You wins";
+}
+else{
+    a3.innerText="DRAW";
+}
+a1.innerText=`Computer=> ${com}`;
+a2.innerText=`You=> ${ans}`;
+        });
+        }
+    </script>
+</body>
+</html>
